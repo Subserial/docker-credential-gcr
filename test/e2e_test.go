@@ -125,7 +125,7 @@ func TestEndToEnd_GCRCreds(t *testing.T) {
 
 	if match, err := regexp.MatchString("_dcgcr_(?:[0-9]+_)*token", creds.Username); !match || err != nil {
 		// Fail if not a dev version.
-		devUsername := "_dcgcr__token"
+		devUsername := "_dcgcr_0_0_0_token"
 		if creds.Username != devUsername {
 			t.Errorf("Bad GCR username: Wanted: %q, Got (val, err): %q, %v", "_dcgcr_(?:[0-9]+_)*token", creds.Username, err)
 		}
