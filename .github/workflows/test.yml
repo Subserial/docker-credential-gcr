@@ -25,6 +25,7 @@ jobs:
       - name: Test mac/ubuntu
         if: ${{ matrix.os != 'windows-latest' }}
         run: |
+          go env
           go test -timeout 10s -v ./...
           go test -race -timeout 10s -v ./...
         env:
