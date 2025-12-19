@@ -48,9 +48,9 @@ func init() {
 		}
 	}
 	Version = strings.TrimPrefix(Version, "v")
-	re := regexp.MustCompile(`^[0-9]+(?:[\._][0-9]+)*$`)
-	if re.MatchString(Version) {
-		GcrOAuth2Username = fmt.Sprintf("_dcgcr_%s_token", strings.ReplaceAll(Version, ".", "_"))
+	re := regexp.MustCompile(`^[0-9]+(?:[\._][0-9]+)*`)
+	if vers := re.FindString(Version); vers != "" {
+		GcrOAuth2Username = fmt.Sprintf("_dcgcr_%s_token", strings.ReplaceAll(vers, ".", "_"))
 	} else {
 		GcrOAuth2Username = "_dcgcr_0_0_0_token"
 	}
